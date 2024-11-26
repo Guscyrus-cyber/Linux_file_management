@@ -1,0 +1,690 @@
+File1.txt
+
+mestamp,User,IP,Action,Status,Module,Process_ID,CPU_Usage,Memory_Usage,Message
+2024-11-16 10:00:00,admin,192.168.1.1,Login,Success,Auth,1234,15%,30%,User logged in
+2024-11-16 10:05:00,john,192.168.1.2,Login,Failure,Auth,1235,12%,25%,Invalid credentials
+2024-11-16 10:10:00,admin,192.168.1.1,File_Access,Success,Storage,1236,10%,20%,Accessed system.log
+2024-11-16 10:15:00,admin,192.168.1.1,Update,Success,Package_Manager,1237,18%,40%,Updated package
+2024-11-16 10:20:00,jane,192.168.1.3,Login,Success,Auth,1238,8%,15%,User logged in
+2024-11-16 10:25:00,admin,192.168.1.1,Logout,Success,Session,1239,0%,5%,User logged out
+2024-11-16 10:30:00,jane,192.168.1.3,File_Access,Failure,Storage,1240,20%,35%,Permission denied
+2024-11-16 10:35:00,john,192.168.1.2,Login,Success,Auth,1241,10%,25%,User logged in
+2024-11-16 10:40:00,admin,192.168.1.1,Process_Kill,Success,Kernel,1242,30%,50%,Killed process 1255
+2024-11-16 10:45:00,jane,192.168.1.3,Login,Failure,Auth,1243,5%,10%,Invalid credentials
+
+file2.txt
+
+Config_ID,User,IP,Date,File_Path,Change_Type,Old_Value,New_Value,Status,Comments
+101,admin,192.168.1.1,2024-11-15,/etc/ssh/sshd_config,Edit,Port 22,Port 2222,Applied,Updated SSH port
+102,john,192.168.1.2,2024-11-15,/etc/apache2/apache2.conf,Edit,Timeout 300,Timeout 600,Applied,Updated timeout
+103,jane,192.168.1.3,2024-11-16,/etc/mysql/my.cnf,Edit,Bind-Address 127.0.0.1,Bind-Address 0.0.0.0,Pending,Allow external access
+104,admin,192.168.1.1,2024-11-16,/etc/hosts,Add,127.0.0.1 localhost,192.168.1.4 localserver,Applied,Added local server
+105,john,192.168.1.2,2024-11-16,/etc/fstab,Edit,/dev/sda1 / ext4 defaults,/dev/sda1 / ext4 noatime,Applied,Optimized mount options
+106,jane,192.168.1.3,2024-11-16,/etc/ntp.conf,Edit,Server 0.pool.ntp.org,Server 1.pool.ntp.org,Applied,Changed NTP server
+107,admin,192.168.1.1,2024-11-16,/var/log/syslog,Clear,NA,NA,Applied,Cleared log files
+108,john,192.168.1.2,2024-11-16,/etc/sudoers,Edit,%admin ALL=(ALL) ALL,%wheel ALL=(ALL) ALL,Pending,Changed admin group
+109,jane,192.168.1.3,2024-11-16,/etc/crontab,Edit,*/5 * * * *,*/10 * * * *,Applied,Updated cron job frequency
+110,admin,192.168.1.1,2024-11-16,/etc/resolv.conf,Edit,nameserver 8.8.8.8,nameserver 8.8.4.4,Applied,Updated DNS settings
+
+file3.txt
+
+User_ID,Username,Full_Name,Email,Phone,Address,Account_Status,Last_Login,Password_Hash,Notes
+1,admin,Admin User,admin@example.com,123-456-7890,123 Admin St,Active,2024-11-16 10:00:00,$2b$10$abcde,Superuser account
+2,john,John Doe,john@example.com,234-567-8901,456 Main Rd,Locked,2024-11-15 09:00:00,$2b$10$12345,Account locked
+3,jane,Jane Smith,jane@example.com,345-678-9012,789 Elm St,Active,2024-11-16 10:20:00,$2b$10$67890,Temporary account
+4,alice,Alice Brown,alice@example.com,456-789-0123,101 Pine Ave,Active,2024-11-14 14:00:00,$2b$10$13579,New hire
+5,bob,Bob Green,bob@example.com,567-890-1234,202 Oak Blvd,Inactive,2024-11-13 08:30:00,$2b$10$24680,Old account
+6,charlie,Charlie Black,charlie@example.com,678-901-2345,303 Birch Lane,Active,2024-11-16 07:15:00,$2b$10$11223,On probation
+7,dave,Dave White,dave@example.com,789-012-3456,404 Cedar Ct,Active,2024-11-15 19:45:00,$2b$10$44556,Needs review
+8,eve,Eve Blue,eve@example.com,890-123-4567,505 Maple Dr,Active,2024-11-16 11:30:00,$2b$10$77889,Account verified
+9,frank,Frank Gold,frank@example.com,901-234-5678,606 Willow St,Inactive,2024-11-12 15:00:00,$2b$10$99001,Deprecated account
+10,grace,Grace Silver,grace@example.com,012-345-6789,707 Spruce Ln,Active,2024-11-16 09:45:00,$2b$10$22334,Secure account
+
+
+
+Linux Commands to Manage the Files
+Navigate to the Desktop
+
+cd ~/Desktop
+
+Create Folders to Organize Files
+
+mkdir logs temp 
+
+Move Files to Respective Folders
+
+mv file1.txt logs/
+mv file2.txt temp/
+mv file3.txt sensitive/
+
+List Contents of Folders
+
+ls
+ls logs/
+ls temp/
+ls sensitive/
+
+View and Edit File Contents
+
+cat logs/file1.txt
+cat temp/file2.txt
+cat sensitive/file3.txt
+
+Edit files using nano:
+
+nano logs/file1.txt
+nano temp/file2.txt
+nano sensitive/file3.txt
+
+Copy and Rename Files
+
+Copy and rename a file:
+
+cp logs/file1.txt logs/file1_backup.txt
+mv temp/file2.txt temp/file2_config.txt
+
+Remove Files and Directories
+
+rm sensitive/file3.txt
+
+Remove an empty directory:
+
+rmdir sensitive
+
+Create and Append Data to Files
+
+echo "New entry added." > new_file.txt
+
+Append data to an existing file:
+
+echo "Additional log entry." >> logs/file1.txt
+
+Search Within Files
+
+grep "Login" logs/file1.txt
+
+Count Lines, Words, and Characters
+
+wc logs/file1.txt
+
+20 Questions for the Analyst
+Basic File Operations
+
+    Which directory contains file1.txt?
+    What is the command to view the contents of file3.txt?
+    How do you rename file2.txt to file2_config.txt?
+    How do you remove the directory temp?
+    What is the command to append a new line to file1.txt?
+
+File Analysis
+
+    What is the timestamp of the first entry in file1.txt?
+    Who is the user associated with the second log entry in file1.txt?
+    What IP address is associated with the failed login attempt in file1.txt?
+    What is the action performed in the third log entry of file1.txt?
+    Which process ID is recorded in the last entry of file1.txt?
+
+File Management
+
+    How do you move file3.txt to the sensitive directory?
+    What command lists all files in the logs directory?
+    What command copies file2_config.txt and renames it file2_backup.txt?
+    How do you create a new directory named archive?
+
+Data Search and Analysis
+
+    Which module is responsible for authentication failures in file1.txt?
+    How do you search for the term CPU in file1.txt?
+    What is the highest CPU usage recorded in file1.txt?
+    Which action in file1.txt results in the message "Permission denied"?
+
+Advanced Commands
+
+    What command counts the number of lines in file2.txt?
+    How do you edit file1.txt to replace "Failure" with "Error"?
+
+
+Which directory contains file1.txt?
+    
+find ~/Desktop -name "file1.txt"
+
+What is the command to view the contents of file3.txt?
+Use the cat command:
+
+cat sensitive/file3.txt
+
+How do you rename file2.txt to file2_config.txt?
+Use the mv command:
+
+mv temp/file2.txt temp/file2_config.txt
+
+How do you remove the directory temp?
+Use the rmdir command (after removing all files inside):
+
+rmdir temp
+
+What is the command to append a new line to file1.txt?
+Use the echo command:
+
+    echo "New log entry added." >> logs/file1.txt
+
+File Analysis
+
+What is the timestamp of the first entry in file1.txt?
+Use head to view the first entry:
+
+head -n 2 logs/file1.txt
+
+Who is the user associated with the second log entry in file1.txt?
+Use sed to extract the second line:
+
+sed -n '3p' logs/file1.txt
+
+What IP address is associated with the failed login attempt in file1.txt?
+Use grep to find "Failure":
+
+grep "Failure" logs/file1.txt
+
+What is the action performed in the third log entry of file1.txt?
+Use awk to extract the action column (assuming CSV format):
+
+awk -F, 'NR==4 {print $4}' logs/file1.txt
+
+Which process ID is recorded in the last entry of file1.txt?
+Use tail to view the last line and extract the Process_ID column:
+
+tail -n 1 logs/file1.txt | awk -F, '{print $7}'
+
+File Management
+
+How do you move file3.txt to the sensitive directory?
+Use the mv command:
+
+mv file3.txt sensitive/
+
+What command lists all files in the logs directory?
+Use the ls command:
+
+ls logs/
+
+What command copies file2_config.txt and renames it file2_backup.txt?
+
+cp temp/file2_config.txt temp/file2_backup.txt
+
+How do you create a new directory named archive?
+
+mkdir archive
+
+Data Search and Analysis
+
+Which module is responsible for authentication failures in file1.txt?
+Use grep to filter "Failure" and extract the Module column:
+
+grep "Failure" logs/file1.txt | awk -F, '{print $6}'
+
+How do you search for the term CPU in file1.txt?
+
+grep "CPU" logs/file1.txt
+
+What is the highest CPU usage recorded in file1.txt?
+
+awk -F, '{print $8}' logs/file1.txt | sed 's/%//' | sort -n | tail -n 1
+
+Which action in file1.txt results in the message "Permission denied"?
+
+grep "Permission denied" logs/file1.txt | awk -F, '{print $4}'
+
+Advanced Commands
+
+What command counts the number of lines in file2.txt?
+    
+wc -l temp/file2.txt
+
+How do you edit file1.txt to replace "Failure" with "Error"?
+
+sed -i 's/Failure/Error/g' logs/file1.txt
+
+
+
+
+Which directory contains file1.txt?
+  
+    The directory containing file1.txt is ~/Desktop/logs/. (Assuming you followed the steps and moved the file to the "logs" directory.)
+
+    What is the command to view the contents of file3.txt?
+    
+    The command is cat sensitive/file3.txt. This will display the contents of file3.txt.
+    Example output:
+
+    User: john_doe, IP: 192.168.1.10, Action: Login, Process_ID: 1234, CPU_Usage: 12%, Memory_Usage: 30%
+
+    How do you rename file2.txt to file2_config.txt?
+    
+    The command used is mv temp/file2.txt temp/file2_config.txt. This renames file2.txt to file2_config.txt in the temp folder.
+
+    How do you remove the directory temp?
+    
+    The command is rmdir temp, which removes the empty directory temp.
+
+    What is the command to append a new line to file1.txt?
+    
+    The command used is echo "New log entry added." >> logs/file1.txt. This appends the text to the end of file1.txt.
+
+File Analysis
+
+    What is the timestamp of the first entry in file1.txt?
+    
+    By using head -n 2 logs/file1.txt, you get the first two lines. The first line might look like:
+
+Timestamp: 2024-11-24 14:30:21, User: john_doe, IP: 192.168.1.10, Action: Login
+
+Who is the user associated with the second log entry in file1.txt?
+
+The command sed -n '3p' logs/file1.txt shows the second log entry. Example output might be:
+
+Timestamp: 2024-11-24 14:31:22, User: jane_smith, IP: 192.168.1.11, Action: Logout
+
+What IP address is associated with the failed login attempt in file1.txt?
+
+Running grep "Failure" logs/file1.txt will give the failed login attempt. Example output:
+
+Timestamp: 2024-11-24 14:32:05, User: admin, IP: 192.168.1.12, Action: Failure, Reason: Incorrect password
+
+What is the action performed in the third log entry of file1.txt?
+
+Using awk -F, 'NR==4 {print $4}' logs/file1.txt extracts the action for the 3rd entry, for example:
+
+Action: File uploaded
+
+Which process ID is recorded in the last entry of file1.txt?
+
+Running tail -n 1 logs/file1.txt | awk -F, '{print $7}' will extract the process ID from the last entry. For example:
+
+Process_ID: 2345
+
+File Management
+
+How do you move file3.txt to the sensitive directory?
+    
+    The command mv file3.txt sensitive/ moves file3.txt to the sensitive directory.
+
+    What command lists all files in the logs directory?
+    
+    The command ls logs/ lists all files in the logs directory. Example output:
+
+    file1.txt, file2.txt
+
+    What command copies file2_config.txt and renames it file2_backup.txt?
+    
+    The command cp temp/file2_config.txt temp/file2_backup.txt copies and renames the file.
+
+    How do you create a new directory named archive?
+    
+    The command mkdir archive creates a new directory named archive.
+
+Data Search and Analysis
+
+    Which module is responsible for authentication failures in file1.txt?
+    
+    The command grep "Failure" logs/file1.txt | awk -F, '{print $6}' will display the module associated with the authentication failure, e.g.:
+
+Module: Authentication
+
+How do you search for the term CPU in file1.txt?
+
+Running grep "CPU" logs/file1.txt will show the entries related to CPU usage. Example output:
+
+CPU_Usage: 12%
+
+What is the highest CPU usage recorded in file1.txt?
+
+Using awk -F, '{print $8}' logs/file1.txt | sed 's/%//' | sort -n | tail -n 1 extracts and shows the highest CPU usage, e.g.:
+
+98%
+
+Which action in file1.txt results in the message "Permission denied"?
+
+The command grep "Permission denied" logs/file1.txt | awk -F, '{print $4}' will show the action. Example output:
+
+    Action: Access denied
+
+Advanced Commands
+
+    What command counts the number of lines in file2.txt?
+    
+    Running wc -l temp/file2.txt will give the number of lines in the file. For example:
+
+    45 temp/file2.txt
+
+    How do you edit file1.txt to replace "Failure" with "Error"?
+    
+    The command sed -i 's/Failure/Error/g' logs/file1.txt will replace "Failure" with "Error" in file1.txt. You can verify by running cat logs/file1.txt.
+
+
+
+
+
+To create a new subdirectory called logs in the /desktop/analyst directory, using the following steps:
+Step-by-Step Instructions
+
+    Navigate to the /desktop/analyst directory:
+
+cd ~/Desktop/analyst
+
+    If the directory doesn't exist, create it first:
+
+    mkdir -p ~/Desktop/analyst
+
+Create the logs subdirectory:
+
+    mkdir logs
+
+
+
+After creating the directory, you can verify it using the ls command:
+
+ls ~/Desktop/analyst
+
+Expected output:
+
+logs
+
+
+
+To list the contents of the /desktop/analyst directory and confirm that the logs subdirectory has been created successfully, using the ls command:
+
+
+ls ~/Desktop/analyst
+
+Expected Output
+
+If the logs subdirectory has been created successfully, the output should look like this:
+
+logs
+
+
+
+using the ls -l command to list the contents along with permissions and timestamps:
+
+ls -l ~/Desktop/analyst
+
+Example output:
+
+drwxr-xr-x 2 user user 4096 Nov 25 14:30 logs
+
+
+
+To remove the /desktop/analyst/temp directory, follow these steps:
+Steps to Remove the Directory
+
+    
+Run the following command to confirm the directory exists before attempting to remove it:
+
+ls ~/Desktop/analyst
+
+Looking for the temp directory in the output.
+
+Remove the temp directory:
+If the directory is empty, using
+
+rmdir ~/Desktop/analyst/temp
+
+If the directory contains files, using:
+
+rm -r ~/Desktop/analyst/temp
+
+After removal, confirming that the temp directory is gone:
+
+ls ~/Desktop/analyst
+
+
+
+To navigate to the /desktop/analyst/notes directory, follow these steps:
+Command to Navigate
+
+cd ~/Desktop/analyst/notes
+
+If the Directory Doesn't Exist
+
+
+In that case, creating the directory first:
+
+mkdir -p ~/Desktop/analyst/notes
+
+Then navigate to it:
+
+cd ~/Desktop/analyst/notes
+
+
+
+To confirming in the correct directory, using
+
+pwd
+
+Expected output:
+
+/home/<your-username>/Desktop/analyst/notes
+
+
+
+To remove the file1.txt from the /home/analyst/notes directory, following these steps:
+Command to Remove the File
+
+rm ~/Desktop/analyst/notes/file1.txt
+
+
+
+After removing the file, verifying that it is no longer in the directory:
+
+ls ~/Desktop/analyst/notes
+
+If the file was successfully removed, it won't appear in the output.
+Notes
+
+If want to confirmation before deleting, using the -i option:
+
+rm -i ~/Desktop/analyst/notes/file1.txt
+
+This will prompt with:
+
+rm: remove regular file '~/Desktop/analyst/notes/file1.txt'? y
+
+
+
+To confirm that file1.txt has been removed from the /desktop/analyst/notes directory, list the directory contents using the following command:
+Command
+
+ls ~/Desktop/analyst/notes
+
+Expected Output
+
+If file1.txt was successfully removed, the output will show the remaining files (if any) in the directory. If the directory is now empty, there will be no output.
+
+Example for an empty directory:
+
+(no output)
+
+Example for a directory with other files:
+
+file2.txt
+file3.txt
+
+
+
+To create an empty file named task.txt in the /home/analyst/notes directory, you can use the touch command:
+Command
+
+touch ~/Desktop/analyst/notes/task.txt
+
+
+
+After creating the file, confirm it exists by listing the directory contents:
+
+ls ~/Desktop/analyst/notes
+
+Expected output:
+
+task.txt
+
+
+To confirm that task.txt has been created in the /desktop/analyst/notes directory, list the directory contents using the ls command:
+Command
+
+ls ~/Desktop/analyst/notes
+
+Expected Output
+
+If the file has been successfully created, the output will include task.txt, along with any other files present in the directory.
+
+Example output:
+
+task.txt
+file2.txt
+file3.txt
+
+
+
+To edit file1.txt, we can use any text editor available on your Linux system, such as nano, vim, or gedit. Here's how you can proceed with each:
+Using Nano (Command-Line Text Editor)
+
+    Open file1.txt in nano:
+
+    nano ~/Desktop/analyst/notes/file1.txt
+
+    Make your changes in the text file.
+
+    Save and exit:
+        Press CTRL + O to save.
+        Press CTRL + X to exit.
+
+Using Vim (Command-Line Text Editor)
+
+    Open file1.txt in vim:
+
+    vim ~/Desktop/analyst/notes/file1.txt
+
+    Enter editing mode by pressing i.
+
+    Make the changes.
+
+    Save and exit:
+        Press ESC to exit editing mode.
+        Type :wq and press Enter to save and quit.
+
+Using Gedit (GUI Text Editor)
+
+    Open file1.txt in gedit:
+
+    gedit ~/Desktop/analyst/notes/file1.txt
+
+    Make your changes in the GUI editor.
+
+    Save the file and close the editor.
+
+
+
+
+
+File1 (System Logs or Configuration Data):
+        What is the timestamp of the last log entry in file1.txt?
+        Which user is associated with the most recent log event in file1.txt?
+        How many entries contain the word "error" in file1.txt?
+
+    File2 (Temporary Configuration or Notes):
+        What is the IP address mentioned in file2.txt?
+        Which port is referenced in file2.txt?
+        What is the configuration setting described in the second line of file2.txt?
+
+    File3 (Sensitive User Data):
+        What is the user ID (UID) for the account mentioned in file3.txt?
+        What is the email address mentioned in file3.txt?
+        How many times does the word "password" appear in file3.txt?
+
+
+
+    grep – To search for patterns in files (e.g., timestamps, IP addresses, or specific keywords).
+    awk – To process and manipulate text, such as extracting specific columns.
+    stat – To retrieve file metadata, like timestamps.
+    cut – To extract specific columns of data from a file.
+    wc – To count occurrences of certain words or lines.
+    sed – To modify or find patterns in a file.
+
+
+
+
+1. What is the timestamp of the last log entry in file1.txt?
+
+stat ~/Desktop/analyst/notes/file1.txt
+
+This will show details like last access time (Access), modification time (Modify), and change time (Change).
+
+Alternative (if you're looking for timestamps inside the file): If file1.txt contains logs, you can use grep to find the last entry:
+
+    tail -n 1 ~/Desktop/analyst/notes/file1.txt
+
+    This will print the last line of the file, which might contain a timestamp.
+
+2. Which user is associated with the most recent log event in file1.txt?
+
+    Command: Assuming the file contains usernames, you can use grep to extract usernames and then awk to display the relevant column. Here's an example:
+
+    grep -oP 'user=\K\w+' ~/Desktop/analyst/notes/file1.txt | tail -n 1
+
+    This command finds occurrences of user=<username> and displays the last one.
+
+3. How many entries contain the word "error" in file1.txt?
+
+    Command: You can use grep with the -c option to count the occurrences:
+
+    grep -ic "error" ~/Desktop/analyst/notes/file1.txt
+
+    This command will count the number of lines containing the word "error" (case insensitive).
+
+4. What is the IP address mentioned in file2.txt?
+
+    Command: To find an IP address (assuming it's in the standard xxx.xxx.xxx.xxx format), you can use grep with a regular expression:
+
+    grep -oP '\b\d{1,3}(\.\d{1,3}){3}\b' ~/Desktop/analyst/notes/file2.txt
+
+    This command will search for IP addresses in the file.
+
+5. Which port is referenced in file2.txt?
+
+    Command: You can use grep with a regular expression to find port numbers (assuming ports are in the range 0-65535):
+
+    grep -oP '\b\d{1,5}\b' ~/Desktop/analyst/notes/file2.txt
+
+    This will print the first port number it finds.
+
+6. What is the configuration setting described in the second line of file2.txt?
+
+    Command: You can use sed to extract the second line of the file:
+
+    sed -n '2p' ~/Desktop/analyst/notes/file2.txt
+
+    This command will print the second line of file2.txt.
+
+7. What is the user ID (UID) for the account mentioned in file3.txt?
+
+    Command: If file3.txt contains the user ID in the format UID=<number>, you can use grep and awk to extract it:
+
+    grep -oP 'UID=\K\d+' ~/Desktop/analyst/notes/file3.txt
+
+    This will print the user ID number.
+
+8. What is the email address mentioned in file3.txt?
+
+    Command: To extract email addresses (assuming they follow the standard username@example.com format), you can use grep:
+
+    grep -oP '[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}' ~/Desktop/analyst/notes/file3.txt
+
+    This will find and print any email addresses in file3.txt.
+
+9. How many times does the word "password" appear in file3.txt?
+
+    Command: You can use grep with the -c option to count the occurrences of the word "password":
+
+    grep -ic "password" ~/Desktop/analyst/notes/file3.txt
+
+    This will count the number of times "password" appears in file3.txt.
+
