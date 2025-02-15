@@ -75,11 +75,7 @@ License
 This project is licensed under the MIT License - see the LICENSE file for details.
 Additional Notes:
 
-    Replace <your-username> with your actual GitHub username.
-    This README assumes that the files (file1.txt, file2.txt, and file3.txt) contain structured data like logs, configuration settings, and user data.
-
-
-
+   
 
 
 
